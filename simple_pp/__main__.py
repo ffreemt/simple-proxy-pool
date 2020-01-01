@@ -22,7 +22,7 @@ def main():
     if not files:
         pprint(' No file name provided or none exists.')
         pprint(' 未提供文件名或所提供文件名的文件不存在')
-        print(f' 请将 ip 代理贴在下面，新起一行按 ctrl-Z （同时按下Ctrl键和zjian）加回车键结束…………\n')
+        print(f' 请将 ip 代理贴在下面，新起一行按 ctrl-Z加回车键 (Win)或 ctrl-D（Linux）结束 -- 同时按下Ctrl键和Z/D键）…………\n')
     else:
         print(f' 验证中……\n')
     text = ''

@@ -14,7 +14,7 @@ python setup.py develop
 
 ### 代理验证原理
 
-通过过IP代理访问 www.baidu.com, 能成功获取百度返回的头则代理有效。再检查头里面时候含'via', 不含'via'即为匿名代理。参考 aio_headers.py。
+通过IP代理访问 www.baidu.com, 能成功获取百度返回的头则代理有效。再检查头里面是否含'via', 不含'via'即为匿名代理。参考 aio_headers.py。
 
 ### 用法
 
