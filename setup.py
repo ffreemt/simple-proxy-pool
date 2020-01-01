@@ -5,17 +5,18 @@ simple proxy pool + proxy validation
 from pathlib import Path
 import re
 
-from setuptools import setup, find_packages
+from setuptools import setup  # , find_packages
 
-name = """simple-proxypool"""
+name = """simple-proxy-pool"""
 # description = ' '.join(name.split('-'))
 description = 'simple proxy pool + proxy validation'
-dir_name, *_ = find_packages()
+# dir_name, *_ = find_packages()
+dir_name = 'simple_pp'
 curr_dir = Path(__file__).parent
 
 # _ = open(f'{dir_name}/__init__.py').read()
 _ = Path(f'{dir_name}/__init__.py').read_text(encoding='utf-8')
-version, = re.findall(r"\n__version__\W*=\W*'([^']+)'", _)
+version, *_ = re.findall(r"__version__\W*=\W*'([^']+)'", _)
 targz = 'v_' + version.replace('.', '') + '.tar.gz'
 install_requires = [
     'requests',
