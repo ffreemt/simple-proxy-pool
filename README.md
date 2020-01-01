@@ -7,8 +7,10 @@
 ```pip install -U simple-proxy-pool```
 
 或下载 repo (e.g., ```git clone https://github.com/ffreemt/simple-proxy-pool.git``` 换到 simple-proxy-pool目录执行
+
 ```python install -r requirements.txt
-python setup.py develop```
+python setup.py develop
+```
 
 ### 原理
 
