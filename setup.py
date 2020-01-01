@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 name = """simple-proxypool"""
 # description = ' '.join(name.split('-'))
 description = 'simple proxy pool + proxy validation'
-dir_name, = find_packages()
+dir_name, *_ = find_packages()
 curr_dir = Path(__file__).parent
 
 # _ = open(f'{dir_name}/__init__.py').read()

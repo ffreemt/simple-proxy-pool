@@ -11,7 +11,7 @@ python setup.py develop```
 
 ### 原理
 
-经过IP代理访问 www.baidu.com, 能成功获取百度返回的头则代理有效。再检查头里面时候含'via', 不含'via'即为匿名代理。参考 aio_headers.py。
+通过过IP代理访问 www.baidu.com, 能成功获取百度返回的头则代理有效。再检查头里面时候含'via', 不含'via'即为匿名代理。参考 aio_headers.py。
 
 ### 用法
 
@@ -36,7 +36,7 @@ res = simple_pp(ip_list)
 pprint(res)
 ```
 
-输出 res 里格式为: res[0] = ip_list[0] + （是否有效，是否匿名，响应时间秒）
+输出 res 里格式为: res[0] = ip_list[0] +（是否有效，是否匿名，响应时间秒）
 
 可参看tests 里面的文件。有疑问或反馈可发 Issues。
 
