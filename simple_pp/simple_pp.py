@@ -7,7 +7,7 @@ from typing import (Union, List, Tuple, Any, Generator)
 
 import re
 
-from timeme import timeme  # tpye: ignore
+from .timeme import timeme  # tpye: ignore
 from .limited_as_completed import limited_as_completed
 from .aio_headers import timed_fetch_headers
 from .need_to_wrap import need_to_wrap
