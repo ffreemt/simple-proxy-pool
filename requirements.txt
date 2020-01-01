@@ -1,0 +1,4 @@
+requests
+aiohttp
+httpx
+loguru
