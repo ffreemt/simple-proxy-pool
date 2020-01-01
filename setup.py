@@ -30,7 +30,8 @@ long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst)
 
 setup(
     name=name,
-    packages=find_packages(),
+    # packages=find_packages(),
+    packages=['simple_pp'],
     version=version,
     description=description,
     long_description=long_description,
