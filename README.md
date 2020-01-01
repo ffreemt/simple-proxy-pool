@@ -6,12 +6,13 @@
 
 ```pip install -U simple-proxy-pool```
 
-或下载 repo (e.g., ```git clone https://github.com/ffreemt/simple-proxy-pool.git``` 换到 simple-proxy-pool目录执行```
+或下载 repo (e.g., ```git clone https://github.com/ffreemt/simple-proxy-pool.git``` 换到 simple-proxy-pool目录执行
+```
 python install -r requirements.txt
 python setup.py develop
 ```
 
-### 原理
+### 代理验证原理
 
 通过过IP代理访问 www.baidu.com, 能成功获取百度返回的头则代理有效。再检查头里面时候含'via', 不含'via'即为匿名代理。参考 aio_headers.py。
 
