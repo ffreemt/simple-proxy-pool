@@ -22,9 +22,9 @@ from tqdm import tqdm  # type: ignore
 
 from loguru import logger
 
-from make_url import make_url
-from timeme import timeme
-from get_new_loop import get_new_loop
+from .make_url import make_url
+from .timeme import timeme
+from .get_new_loop import get_new_loop
 asyncio.set_event_loop(get_new_loop())
 
 # session = ClientSession()
