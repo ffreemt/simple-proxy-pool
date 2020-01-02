@@ -23,6 +23,9 @@ install_requires = [
     'loguru',
     'httpx',
     'aiohttp',
+    'multidict',
+    'tqdm',
+    'async_timeout',
 ]
 
 README_rst = f'{curr_dir}/README.md'

@@ -21,6 +21,9 @@ def simple_pp(
         timeout: float = 4,
 ) -> List[Any]:
     ''' simeple proxy pool '''
+    
+    # (\d{1,3}(?:\.\d{1,3}){3})(?:[:\s]+(\d{1,5})(?=[^\d\.]))?
+    # (\d{1,3}(?:\.\d{1,3}){3})(?:[^\d\.]+(\d{1,5})(?=[^\d\.]))?
 
     patt = re.compile(r'(?:https?://)?(\d{1,3}(?:\.\d{1,3}){3})(?:[\s\t:\'",]+(\d{1,4}))?')
     if isinstance(proxies, str):

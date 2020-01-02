@@ -1,4 +1,7 @@
 requests
 aiohttp
 httpx
+multidict
+async_timeout
 loguru
+tqdm

@@ -70,3 +70,4 @@ def test_simple_pp_no_wrap():
 def test_freeip_top():
     from simple_pp.httpx_get import httpx_get
     resp = httpx_get('https://www.freeip.top/?page=1')
+    
