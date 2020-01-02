@@ -26,6 +26,7 @@ install_requires = [
     'multidict',
     'tqdm',
     'async_timeout',
+    'html2text',
 ]
 
 README_rst = f'{curr_dir}/README.md'
