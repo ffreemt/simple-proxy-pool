@@ -1,5 +1,5 @@
 ''' __main__, to run:
-python -m yeekit_tr
+python -m simple_pp
 '''
 
 from simple_pp import simple_pp  # , PROXYPOOL
