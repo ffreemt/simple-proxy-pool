@@ -29,7 +29,7 @@ def main():
     for line in fileinput.input(files):
         text += line
 
-    print(text)
+    print(text[:50])
     pprint(' 按任意键退出。')
     _ = input()
 
