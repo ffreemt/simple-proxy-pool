@@ -14,7 +14,7 @@ from simple_pp import simple_pp  # , PROXYPOOL
 
 from loguru import logger
 
-from simple_pp.jhao.ProxyGetter.getFreeProxy import GetFreeProxy
+from .simple_pp.jhao.ProxyGetter.getFreeProxy import GetFreeProxy
 
 SITE_LIST = ['freeProxy01', 'freeProxy04', 'freeProxy05', 'freeProxy07', 'freeProxy08', 'freeProxy09', 'freeProxy10', 'freeProxy11', 'freeProxy12', 'freeProxy14', 'freeProxy03']
 

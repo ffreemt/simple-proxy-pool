@@ -27,6 +27,7 @@ install_requires = [
     'tqdm',
     'async_timeout',
     'html2text',
+    'pyperclip',
 ]
 
 README_rst = f'{curr_dir}/README.md'

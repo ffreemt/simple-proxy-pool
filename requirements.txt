@@ -6,3 +6,4 @@ async_timeout
 html2text
 loguru
 tqdm
+pyperclip
