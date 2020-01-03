@@ -13,6 +13,7 @@ description = ' '.join(name.split('-')) + ' + proxy validation'
 dir_name = 'simple_pp'
 curr_dir = Path(__file__).parent
 
+
 def read_requirements_file(*args):
     ''' paths, filename'''
     filepath = Path(*args)
@@ -38,7 +39,10 @@ def read_requirements_file(*args):
 _ = Path(f'{dir_name}/__init__.py').read_text(encoding='utf-8')
 version, *_ = re.findall(r"__version__\W*=\W*'([^']+)'", _)
 targz = 'v_' + version.replace('.', '') + '.tar.gz'
-install_requires = [*read_requirements_file('requirements.txt')]  # noqa
+# install_requires = [*read_requirements_file(curr_dir, 'requirements.txt')]  # noqa
+install_requires = [
+
+]
 
 README_rst = f'{curr_dir}/README.md'
 long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''
