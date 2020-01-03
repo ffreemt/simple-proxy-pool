@@ -22,15 +22,18 @@ python setup.py develop
 
 ##### 简单用法
 ```python -m simple_pp```
+
 simple_pp 会试着以各种方式搜集到不少于 200 个代理，验证后将有效代理输出到屏幕上。
 
 ##### 普通用法
 
 用户可以提供自己的代理：直接将自由格式的代理贴在命令行后面，或提供含自由格式代理的文件名贴在命令行后面，或在运行 `python -m simple_pp` 前将代理拷入系统剪贴板。
 
-```python -m simple_pp``` 贴入需验证的IP代理（格式 ip:端口, 以空格、回车非数字字母或中文隔开均可）。或：
+```python -m simple_pp```
+贴入需验证的IP代理（格式 ip:端口, 以空格、回车非数字字母或中文隔开均可）。或：
 
-```python -m simple_pp file1 file2 ...``` 文件内含以上格式的IP代理
+```python -m simple_pp file1 file2 ...```
+文件内含以上格式的IP代理
 
 也可以用pipe，例如
 ```
