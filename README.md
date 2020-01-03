@@ -104,6 +104,6 @@ pprint(_)
 
 ```
 
-### Acknowledgments
+### 鸣谢
 
 * 用了 jhao 的 proxypool 项目里几个文件。感谢jhao开源。
