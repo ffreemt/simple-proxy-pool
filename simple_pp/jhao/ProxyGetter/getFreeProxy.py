@@ -118,7 +118,7 @@ class GetFreeProxy(object):
     # '''
 
     @staticmethod
-    def freeProxy03(page_count=5):
+    def freeProxy03(page_count=5, start_page=1):
         """
         西刺代理 https://www.xicidaili.com
         :return:
@@ -164,14 +164,36 @@ class GetFreeProxy(object):
             'https://www.xicidaili.com/nn/',  # 高匿
             'https://www.xicidaili.com/nt/',  # 透明
         ]
+        if page_count > 739:
+            url_list = [
+                'https://www.xicidaili.com/nn/',  # 高匿
+            ]
+        if page_count > 2985:
+            return []
+
+        try:
+            start_page = int(start_page)
+        except Exception as exc:
+            # invalid, fail back to one page
+            logger.warning(exc)
+            start_page = page_count
+        if  start_page < 1 or start_page > page_count:  # fail back to one page
+            start_page = page_count
+        logger.debug(f'start_page: {start_page} ')
+
         for each_url in url_list:
-            for i in range(1, page_count + 1):
+
+            for i in range(start_page, page_count + 1):
 
                 page_url = each_url + str(i)
 
                 tree = getHtmlTree(page_url)
                 # tree = getHtmlTree1(page_url)
                 # tree = getHtmlTree2(page_url)
+
+                if tree is None:
+                    logger.warning('Daily quota used up or IP black listed or website down...')
+                    return None
 
                 # sleep when i > 3 and i < page_count
                 if i > 3 and i < page_count:

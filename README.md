@@ -20,7 +20,15 @@ python setup.py develop
 
 #### 命令行
 
-```python -m simple_pp``` 贴入需验证的IP代理（格式 ip:端口, 以空格、回车非数字字母或中文隔开）。或：
+##### 简单用法
+```python -m simple_pp```
+simple_pp 会试着以各种方式搜集到不少于 200 个代理，验证后将有效代理输出到屏幕上。
+
+##### 普通用法
+
+用户可以提供自己的代理：直接将自由格式的代理贴在命令行后面，或提供含自由格式代理的文件名贴在命令行后面，或在运行 `python -m simple_pp` 前将代理拷入系统剪贴板。
+
+```python -m simple_pp``` 贴入需验证的IP代理（格式 ip:端口, 以空格、回车非数字字母或中文隔开均可）。或：
 
 ```python -m simple_pp file1 file2 ...``` 文件内含以上格式的IP代理
 
@@ -28,6 +36,19 @@ python setup.py develop
 ```
 curl "https://www.freeip.top/?page=1" | python -m simple_pp
 ```
+#### 高级用法
+
+显示详细用法
+```python -m simple_pp -h```
+
+给定代理数目
+```python -m simple_pp -p 500```
+
+只显示有效匿名代理
+```python -m simple_pp -a```
+
+给定代理数目、只显示有效匿名代理
+```python -m simple_pp -p 800 -a```
 
 #### python 程序内调用
 ```
@@ -41,7 +62,7 @@ pprint(res)
 
 输出 res 里格式为: res[0] = ip_list[0] +（是否有效，是否匿名，响应时间秒）
 
-可参看tests 里面的文件。有疑问或反馈可发 Issues。
+可参看__main__.py 或 tests 里面的文件。有疑问或反馈可发 Issues。
 
 例如
 ```

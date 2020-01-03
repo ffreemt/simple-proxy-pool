@@ -5,38 +5,48 @@ simple proxy pool + proxy validation
 from pathlib import Path
 import re
 
-from setuptools import setup  # , find_packages
+from setuptools import setup, find_packages
 
 name = """simple-proxy-pool"""
-# description = ' '.join(name.split('-'))
-description = 'simple proxy pool + proxy validation'
+description = ' '.join(name.split('-')) + ' + proxy validation'
 # dir_name, *_ = find_packages()
 dir_name = 'simple_pp'
 curr_dir = Path(__file__).parent
+
+def read_requirements_file(*args):
+    ''' paths, filename'''
+    filepath = Path(*args)
+    # logger.debug(f'\n\t {filepath} exists: {filepath.exists()}')
+    if not filepath.exists():
+        # logger.warning(f'{filepath} exists: {filepath.exists()}')
+        print(f'{filepath} exists: {filepath.exists()}')
+        return None
+    try:
+        lines = filepath.read_text('utf-8').split('\n')
+    except Exception as exc:
+        logger.error(exc)
+        return None
+
+    # strip '#'
+    lines = [elm.split('#', 1)[0].strip() for elm in lines]
+
+    # remove empty lines
+    return filter(None, lines)
+
 
 # _ = open(f'{dir_name}/__init__.py').read()
 _ = Path(f'{dir_name}/__init__.py').read_text(encoding='utf-8')
 version, *_ = re.findall(r"__version__\W*=\W*'([^']+)'", _)
 targz = 'v_' + version.replace('.', '') + '.tar.gz'
-install_requires = [
-    'requests',
-    'loguru',
-    'httpx',
-    'aiohttp',
-    'multidict',
-    'tqdm',
-    'async_timeout',
-    'html2text',
-    'pyperclip',
-]
+install_requires = [*read_requirements_file('requirements.txt')]  # noqa
 
 README_rst = f'{curr_dir}/README.md'
 long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''
 
 setup(
     name=name,
-    # packages=find_packages(),
-    packages=['simple_pp'],
+    packages=find_packages(),
+    # packages=['simple_pp'],
     version=version,
     description=description,
     long_description=long_description,
