@@ -7,6 +7,6 @@ from .limited_as_completed import limited_as_completed
 
 # date__ = '2020.1.1'
 
-__version__ = '0.0.7'
-__date__ = '2020.1.2'
-VERSION = __version__
+__version__ = '0.0.8'
+__date__ = '2020.1.3'
+VERSION = tuple(__version__.split('.'))
