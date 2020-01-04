@@ -20,12 +20,12 @@ logger.debug(f' PAR_DIR: {PAR_DIR}')
 # from jhao.ProxyGetter import getFreeProxy  # type: ignore  # pylint: disable=wrong-import-position, import-error  # noqa
 
 logger.debug(find_packages(PAR_DIR))
-
 '''
 # for path_ in find_packages('..'):
 for path_ in find_packages(par_dir):
     sys.path.append((par_dir / Path(path_)).as_posix())
 # '''
+
 # logger.debug(sys.path)
 
 

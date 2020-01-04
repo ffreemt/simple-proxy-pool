@@ -17,6 +17,7 @@ CUR_DIR = Path(__file__).absolute().parent.as_posix()
 # pylint: disable=wrong-import-position, import-error  # noqa
 from simple_pp.limited_as_completed import limited_as_completed
 from simple_pp.aio_headers import timed_fetch_headers
+
 # from simple_pp.simple_pp import simple_pp
 
 
@@ -42,7 +43,12 @@ def test_as_completed_afunc_bfunc():
 
         return -xarg
 
-    coros = iter([afun(), bfun(), afun(), bfun(), ])
+    coros = iter([
+        afun(),
+        bfun(),
+        afun(),
+        bfun(),
+    ])
     res = [*limited_as_completed(coros)]
     logger.debug(res)
     assert sum(res) == -2
@@ -80,7 +86,8 @@ def test_res_info_pkl():
     res = []
 
     with timeme():
-        for idx, elm in enumerate(tqdm(limited_as_completed(coros, limit=limit))):
+        for idx, elm in enumerate(
+                tqdm(limited_as_completed(coros, limit=limit))):
             res.append(elm)
 
     # res = [*limited_as_completed(coros, limit=limit)]

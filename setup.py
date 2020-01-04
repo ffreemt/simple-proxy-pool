@@ -26,6 +26,7 @@ def read_requirements_file(*args):
         lines = filepath.read_text('utf-8').split('\n')
     except Exception as exc:
         logger.error(exc)
+        print(exc)
         return None
 
     # strip '#'
@@ -39,10 +40,18 @@ def read_requirements_file(*args):
 _ = Path(f'{dir_name}/__init__.py').read_text(encoding='utf-8')
 version, *_ = re.findall(r"__version__\W*=\W*'([^']+)'", _)
 targz = 'v_' + version.replace('.', '') + '.tar.gz'
-# install_requires = [*read_requirements_file(curr_dir, 'requirements.txt')]  # noqa
-install_requires = [
 
-]
+# install_requires = [*read_requirements_file(curr_dir, 'requirements.txt')]  # noqa
+
+install_requires = ['requests',
+ 'aiohttp',
+ 'httpx',
+ 'multidict',
+ 'async_timeout',
+ 'html2text',
+ 'loguru',
+ 'tqdm',
+ 'pyperclip']
 
 README_rst = f'{curr_dir}/README.md'
 long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''

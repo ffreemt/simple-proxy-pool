@@ -69,5 +69,9 @@ def test_simple_pp_no_wrap():
 
 def test_freeip_top():
     from simple_pp.httpx_get import httpx_get
+    from simple_pp.extract_ip_port import extract_ip_port
+
     resp = httpx_get('https://www.freeip.top/?page=1')
-    
+    res = simple_pp(extract_ip_port(resp.text))
+    assert res
+    assert len(res[0]) == 4
