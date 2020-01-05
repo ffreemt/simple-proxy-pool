@@ -43,9 +43,11 @@ curl "https://www.freeip.top/?page=1" | python -m simple_pp
 ```
 
 如果只想验证代理可加上 `-c` 开关，例如验证本地 8889、8080和80端口
-···
+
+```
 python -m simple_pp -c 127.0.0.1 8889 127.0.0.1 8080 127.0.0.1
-···
+```
+
 输出
 <pre>
 Time elapsed: 1.075 s
