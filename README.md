@@ -114,8 +114,7 @@ pprint(simple_pp(['113.53.230.167:80', '36.25.243.51:80']))
 既是说，第一个代理113.53.230.167:80无效，第二个代理36.25.243.51:80为匿名代理
 
 也可以直接将网页结果送给 simple_pp, 例如
-```
-import re
+```import re
 import asyncio
 import httpx
 from pprint import pprint
@@ -128,9 +127,7 @@ pprint(_)
 # 或
 _ = [elm for elm in simple_pp(arun(httpx.get('https://www.freeip.top/?page=1')).text) if elm[-3] is True]
 pprint(_)
-# ditto
-
-```
+# ditto```
 
 ### 鸣谢
 
