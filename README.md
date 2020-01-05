@@ -48,7 +48,7 @@ curl "https://www.freeip.top/?page=1" | python -m simple_pp
 python -m simple_pp -c 127.0.0.1 8889 127.0.0.1 8080 127.0.0.1
 ```
 
-输出
+得到的输出为
 <pre>
 Time elapsed: 1.075 s
          验证中……
@@ -57,7 +57,7 @@ Time elapsed: 1.075 s
 [('127.0.0.1:8889', 'user', True, False, 0.71)]
 ['total:', 1]
 </pre>
-或
+或运行
 ```
 python -m simple_pp -c 127.0.0.1 127.0.0.1:8889 127.0.0.1:8080
 ```
@@ -98,13 +98,22 @@ pprint(res)
 ```
 import asyncio
 import httpx
+from pprint import pprint
 from simple_pp import simple_pp
 
-simple_pp(['113.53.230.167:80', '36.25.243.51:80'])
+pprint(simple_pp(['113.53.230.167:80', '36.25.243.51:80']))
 ```
-输出: [('113.53.230.167:80', True, False, 0.31),
-('36.25.243.51:80', True, True, 0.51)]
--> 第一个代理为透明代理，第二个代理为匿名代理
+输出为:
+<pre>
+Time elapsed: 1.329 s
+[('36.25.243.51:80', True, True, 0.61),
+ ('113.53.230.167:80',
+  'Cannot connect to host 113.53.230.167:80 ssl:default [Connect call failed '
+  "('113.53.230.167', 80)]",
+  False,
+  1.33)]
+</pre>
+既是说，第一个代理无效，第二个代理为匿名代理
 
 也可以直接将网页结果送给 simple_pp, 例如
 ```
