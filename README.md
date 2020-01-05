@@ -104,15 +104,13 @@ from simple_pp import simple_pp
 pprint(simple_pp(['113.53.230.167:80', '36.25.243.51:80']))
 ```
 输出为:
-<pre>
-Time elapsed: 1.329 s
+<pre>Time elapsed: 1.329 s
 [('36.25.243.51:80', True, True, 0.61),
  ('113.53.230.167:80',
   'Cannot connect to host 113.53.230.167:80 ssl:default [Connect call failed '
   "('113.53.230.167', 80)]",
   False,
-  1.33)]
-</pre>
+  1.33)]</pre>
 既是说，第一个代理113.53.230.167:80无效，第二个代理36.25.243.51:80为匿名代理
 
 也可以直接将网页结果送给 simple_pp, 例如
