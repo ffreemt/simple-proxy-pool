@@ -41,6 +41,25 @@ simple_pp 会试着以各种方式搜集到不少于 200 个代理，验证后�
 ```
 curl "https://www.freeip.top/?page=1" | python -m simple_pp
 ```
+
+如果只想验证代理可加上 `-c` 开关，例如验证本地 8889、8080和80端口
+···
+python -m simple_pp -c 127.0.0.1 8889 127.0.0.1 8080 127.0.0.1
+···
+输出
+<pre>
+Time elapsed: 1.075 s
+         验证中……
+Time elapsed: 1.075 s
+ 代理                   源      有效    匿名    响应时间
+[('127.0.0.1:8889', 'user', True, False, 0.71)]
+['total:', 1]
+</pre>
+或
+```
+python -m simple_pp -c 127.0.0.1 127.0.0.1:8889 127.0.0.1:8080
+```
+
 #### 高级用法
 
 显示详细用法

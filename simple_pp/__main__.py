@@ -127,7 +127,9 @@ def main():  # pylint: disable=too-many-branches, too-many-locals, too-many-stat
         logger.error(exc)
         tot_no = 0
 
-    if tot_no < args.proxy_count:
+    # obtain additional proxies if -c is not set (False)
+    if tot_no < args.proxy_count and args.check is False:
+
         logger.info(' 试着从网上获取代理地址…… ')
         if not args.debug:
             logger.info(' 可使用 -d 显示详情, 例如： \n\t python -m simple_pp -d')

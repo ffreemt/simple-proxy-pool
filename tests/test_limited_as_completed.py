@@ -60,7 +60,7 @@ def test_res_info_pkl():
     from pprint import pprint
     from tqdm import tqdm
 
-    from timeme import timeme
+    from simple_pp.timeme import timeme
 
     _ = '''
     loop = asyncio.get_event_loop()

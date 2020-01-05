@@ -15,7 +15,7 @@ def httpx_get(*args, **kwargs):
     'xxx'
     '''
     loop = get_event_loop()
-    if loop.is_closed():
+    if loop.is_closed():  # pragma: no cover
         loop = new_event_loop()
         set_event_loop(loop)
     return loop.run_until_complete(httpx.get(*args, **kwargs))

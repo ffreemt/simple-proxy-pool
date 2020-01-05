@@ -45,8 +45,7 @@ def need_to_wrap(proxy: Union[str, tuple, list]) -> bool:
             finally:
                 ip_port_bool.append(_)
 
-            # a ip:port list/tuple already, no need to wrap
-
+        # a ip:port list/tuple already, no need to wrap
         if all(ip_port_bool):
             return False
 

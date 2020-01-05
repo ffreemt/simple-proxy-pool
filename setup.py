@@ -44,14 +44,17 @@ targz = 'v_' + version.replace('.', '') + '.tar.gz'
 # install_requires = [*read_requirements_file(curr_dir, 'requirements.txt')]  # noqa
 
 install_requires = ['requests',
- 'aiohttp',
- 'httpx',
- 'multidict',
- 'async_timeout',
- 'html2text',
- 'loguru',
- 'tqdm',
- 'pyperclip']
+    'aiohttp',
+    'httpx',
+    'multidict',
+    'async_timeout',
+    'html2text',
+    'loguru',
+    'tqdm',
+    'pyperclip',
+    'lxml',
+    'pyquery',
+]
 
 README_rst = f'{curr_dir}/README.md'
 long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''
@@ -67,7 +70,7 @@ setup(
     keywords=['machine translation', 'free', 'scraping', ],
     author="mikeee",
     url=f'http://github.com/ffreemt/{name}',
-    download_url='https://github.com/ffreemt/yeekit-tr-free/archive/' + targz,
+    download_url='https://github.com/ffreemt/simepl-proxy-pool/archive/' + targz,
     install_requires=install_requires,
     classifiers=[
         'Development Status :: 3 - Alpha',

@@ -7,7 +7,7 @@ flags=re.MULTILINE
 
 '''
 
-from typing import List
+from typing import List, Tuple, Union
 
 import re
 from pyquery import PyQuery as pq
@@ -18,7 +18,7 @@ PROXY_PAT = re.compile(r'(\d{1,3}(?:\.\d{1,3}){3})(?:[^\d.]+(\d{1,5})(?=[^\d.]|$
 PROXY_PAT = re.compile(r'(\d{1,3}(?:\.\d{1,3}){3})(?:[^\d.]+(\d{1,5})(?=[^\d.]|$))?')  # noqa
 
 
-def extract_ip_port(text: str) -> List[str]:
+def extract_ip_port(text: str, source: str = 'user') -> List[Tuple[str, str]]:
     ''' extract ip:port
     '''
     # from bs4 import BeautifulSoup
@@ -28,34 +28,36 @@ def extract_ip_port(text: str) -> List[str]:
 
     try:
         text = text.__str__()
-    except Exception as exc:
+    except Exception as exc:  # pragma: no cover
         logger.error(exc)
         raise
 
     logger.debug(f'\n\t {text[:30]} ')
 
+
     try:
         # _ = pq(text).text()
         # _ = BeautifulSoup(text, features='lxml').text
-        _ = h2t.handle(text)
-    except Exception as exc:
+        text = h2t.handle(text)
+    except Exception as exc:  # pragma: no cover
         logger.error(exc)
-        _ = ''
+        text = ''
 
+    proxies = []  # type: List[Union[str, Tuple[str, str]]]
     try:
         # _ = PROXY_PAT.findall(pq(Path(file).read_text('utf-8')).text())
-        _ = PROXY_PAT.findall(_)
-    except Exception as exc:
+        proxies = PROXY_PAT.findall(text)
+    except Exception as exc:  # pragma: no cover
         logger.error(exc)
-        _ = []
+        proxies = []
 
     try:
-        _ = [elm[0] if len(elm) > 1 and not elm[1].strip() else ':'.join(elm) for elm in _]  # noqa
-    except Exception as exc:
+        proxies = [elm[0] if len(elm) > 1 and not elm[1].strip() else ':'.join(elm) for elm in proxies]  # noqa
+    except Exception as exc:  # pragma: no cover
         logger.error(exc)
-        _ = [str(exc)]
+        proxies = [str(exc)]
 
-    return _
+    return list(zip(proxies, [source] * len(proxies)))
 
 
 def test_empty():
@@ -64,7 +66,7 @@ def test_empty():
 
 
 def test_127_0_0_1():
-    ''' test empty '''
+    ''' test 127.0.0.1  '''
     assert extract_ip_port('127.0.0.1') == ['127.0.0.1']
 
 
