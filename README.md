@@ -1,7 +1,6 @@
 # simple-proxy-pool
-![image](https://travis-ci.org/aio-libs/aiojobs.svg?branch=master)
-    :target: https://travis-ci.org/aio-libs/aiojobs
-![image](https://codecov.io/gh/aio-libs/aiojobs/branch/master/graph/badge.svg) :target: https://codecov.io/gh/aio-libs/aiojobs
+![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)
+![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)
 
 简单IP代理池 simple_pp 是个 异步并发IP代理验证工具，速度很快，一千个代理半分钟左右可完成。
 
