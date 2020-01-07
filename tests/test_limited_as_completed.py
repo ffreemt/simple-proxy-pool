@@ -7,9 +7,6 @@ import asyncio
 # import pytest
 from loguru import logger
 
-BASE_DIR = Path(__file__).absolute().parent.parent.as_posix()
-CUR_DIR = Path(__file__).absolute().parent.as_posix()
-
 # sys.path.append(BASE_DIR)
 
 # from jhao.ProxyGetter import getFreeProxy
@@ -19,6 +16,9 @@ from simple_pp.limited_as_completed import limited_as_completed
 from simple_pp.aio_headers import timed_fetch_headers
 
 # from simple_pp.simple_pp import simple_pp
+
+# BASE_DIR = Path(__file__).absolute().parent.parent.as_posix()
+CUR_DIR = Path(__file__).absolute().parent.as_posix()
 
 
 def test_as_completed_afunc_bfunc():
@@ -81,12 +81,12 @@ def test_res_info_pkl():
     coros = (timed_fetch_headers(elm) for elm in res_info * repeat)
 
     limit = 270  # 25 s
-    limit = 30  #  45-60.227s
+    limit = 30  # 45-60.227s
 
     res = []
 
     with timeme():
-        for idx, elm in enumerate(
+        for idx, elm in enumerate(  # pylint: disable=unused-variable
                 tqdm(limited_as_completed(coros, limit=limit))):
             res.append(elm)
 

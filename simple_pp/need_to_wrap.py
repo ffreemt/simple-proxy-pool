@@ -7,6 +7,7 @@ True if need to wrap in tuple
 from typing import Union
 import re
 
+
 def need_to_wrap(proxy: Union[str, tuple, list]) -> bool:
     '''
     True if proxy is a tupl/list with the first entry as ip:port str and other entries not ip:port
@@ -14,6 +15,9 @@ def need_to_wrap(proxy: Union[str, tuple, list]) -> bool:
     >>> assert not need_to_wrap(['127.0.0.1:8889', '127.0.0.1'])
     >>> assert need_to_wrap(['127.0.0.1:8889', 'source'])
     '''
+    # simple_pp makes use of extract_ip_port (re.findall)
+    # that converts proxy:str to a list,
+    # hence no need to wrap
     if isinstance(proxy, str):
         return False
 

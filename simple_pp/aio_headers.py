@@ -30,6 +30,7 @@ asyncio.set_event_loop(get_new_loop())
 # session = ClientSession()
 SEM = asyncio.Semaphore(1000)
 
+
 async def fetch_headers(url, session=None, proxy=None):
     '''  fetch_headers from www.baidu.com via a proxy
 

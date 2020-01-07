@@ -15,7 +15,7 @@ import asyncio
 from itertools import islice
 
 
-def limited_as_completed(coros: Union[Generator, Iterator], limit: float =30) -> Generator:
+def limited_as_completed(coros: Union[Generator, Iterator], limit: float = 30) -> Generator:
     ''' limited_as_completed '''
     loop = asyncio.get_event_loop()
     if loop.is_closed():

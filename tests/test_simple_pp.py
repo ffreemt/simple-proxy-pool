@@ -74,7 +74,7 @@ def test_simple_pp_freeip_top():
     resp = httpx_get('https://www.freeip.top/?page=1')
     res = simple_pp(extract_ip_port(resp.text))
     assert res
-    assert len(res[0]) == 4
+    assert len(res[0]) == 5
 
 
 def test_localhost_8889():
@@ -95,4 +95,3 @@ def test_localhost_8889__need_wrap():
     assert res[0][0] == '127.0.0.1:8889'
     assert res[0][-3] is True
     assert res[0][-2] is False
-

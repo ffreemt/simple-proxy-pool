@@ -34,7 +34,6 @@ def extract_ip_port(text: str, source: str = 'user') -> List[Tuple[str, str]]:
 
     logger.debug(f'\n\t {text[:30]} ')
 
-
     try:
         # _ = pq(text).text()
         # _ = BeautifulSoup(text, features='lxml').text

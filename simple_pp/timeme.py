@@ -5,6 +5,7 @@ from typing import Generator
 import contextlib
 from time import perf_counter
 
+
 @contextlib.contextmanager
 def timeme() -> Generator:
     then = perf_counter()  # type: float

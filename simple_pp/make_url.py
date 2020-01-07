@@ -38,8 +38,8 @@ def make_url(
             logger.info(' Something is not right...')
             raise
 
-    if parse.urlparse(url).scheme and not parse.urlparse(url).netloc:
     # if not parsed.netloc:  # notloc not present probably wrong format
+    if parse.urlparse(url).scheme and not parse.urlparse(url).netloc:
         logger.warning(f'\n\t {url} probably malformed, trying to just extracting the ip')
         _ = re.search(r'\d+(\.\d+){3}', url)
         if _:
