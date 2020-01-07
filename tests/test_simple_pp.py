@@ -79,19 +79,25 @@ def test_simple_pp_freeip_top():
 
 def test_localhost_8889():
     ''' localhost:8889 '''
+    import sys
 
     res = simple_pp([['127.0.0.1:8889', 'user']])
     # [('127.0.0.1:8889', 'user', True, False, 0.83)]
     assert res[0][0] == '127.0.0.1:8889'
-    assert res[0][-3] is True
-    assert res[0][-2] is False
+    if sys.platform in 'win32':  # local in win10
+        assert res[0][-3] is True
+        assert res[0][-2] is False
 
 
 def test_localhost_8889__need_wrap():
     ''' localhost:8889 '''
+    import sys
 
     res = simple_pp(['127.0.0.1:8889', 'user'])
     # [('127.0.0.1:8889', 'user', True, False, 0.83)]
     assert res[0][0] == '127.0.0.1:8889'
-    assert res[0][-3] is True
-    assert res[0][-2] is False
+
+    # local in win10
+    if sys.platform in ['win32']:
+        assert res[0][-3] is True
+        assert res[0][-2] is False
