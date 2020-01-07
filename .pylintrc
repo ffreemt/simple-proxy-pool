@@ -1,0 +1,2 @@
+[MASTER]
+ignore=simple_pp\jhao,providers.py,utils.py,errors.py
