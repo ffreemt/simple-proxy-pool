@@ -1,5 +1,4 @@
-# simple-proxy-pool
-[![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)[![codecov](https://codecov.io/gh/ffreemt/simple-proxy-pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ffreemt/simple-proxy-pool)
+# simple-proxy-pool [![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)[![codecov](https://codecov.io/gh/ffreemt/simple-proxy-pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ffreemt/simple-proxy-pool)
 
 简单IP代理池 simple_pp 是个 异步并发IP代理验证工具，速度很快，一千个代理半分钟左右可完成。
 
