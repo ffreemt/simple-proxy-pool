@@ -59,16 +59,16 @@ def extract_ip_port(text: str, source: str = 'user') -> List[Tuple[str, str]]:
     return list(zip(proxies, [source] * len(proxies)))
 
 
-def test_empty():
+def test_empty():  # pragma: no cover
     ''' test empty '''
     assert extract_ip_port('') == []
 
 
-def test_127_0_0_1():
+def test_127_0_0_1():  # pragma: no cover
     ''' test 127.0.0.1  '''
     assert extract_ip_port('127.0.0.1') == ['127.0.0.1']
 
 
-def test_multilines():
+def test_multilines():  # pragma: no cover
     ''' test empty '''
     assert extract_ip_port('127.0.0.1 \n\n 5000') == ['127.0.0.1:5000']  # noqa

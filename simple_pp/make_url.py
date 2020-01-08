@@ -39,7 +39,7 @@ def make_url(
             raise
 
     # if not parsed.netloc:  # notloc not present probably wrong format
-    if parse.urlparse(url).scheme and not parse.urlparse(url).netloc:
+    if parse.urlparse(url).scheme and not parse.urlparse(url).netloc:  # pragma: no cover
         logger.warning(f'\n\t {url} probably malformed, trying to just extracting the ip')
         _ = re.search(r'\d+(\.\d+){3}', url)
         if _:

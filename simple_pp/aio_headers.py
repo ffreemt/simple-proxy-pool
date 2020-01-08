@@ -38,10 +38,10 @@ async def fetch_headers(url, session=None, proxy=None):
     :return: reached baidu, ano '''
 
     # obtain a session when session is None or closed
-    if session is None or isinstance(session, aiohttp.client.ClientSession) and session.closed:  # noqa
+    if session is None or isinstance(session, aiohttp.client.ClientSession) and session.closed:  # noqa  # pragma: no cover
         session = ClientSession()
 
-    if asyncio.get_event_loop().is_closed():
+    if asyncio.get_event_loop().is_closed():  # pragma: no cover
         asyncio.set_event_loop(get_new_loop())
     fetch_headers.headers = CIMultiDict(fetch='')
 
@@ -97,7 +97,7 @@ async def timed_fetch_headers(
     async with ClientSession() as session:
         try:
             proxy = make_url(proxy)
-        except Exception as exc:
+        except Exception as exc:  # pragma: no cover
             logger.warning('make_url exc: %s' % exc)
 
         then = default_timer()
@@ -116,15 +116,15 @@ async def timed_fetch_headers(
                 # return _, elapsed_time
                 return proxy_ + _ + (elapsed_time, )
 
-        except Exception as exc:
+        except Exception as exc:  # pragma: no cover
             logger.info(' TimeoutError exc: %s ' % exc)
             return str(exc)
 
 
-def main():
+def main():  # pragma: no cover
     ''' main '''
     # import
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     main()
