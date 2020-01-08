@@ -18,7 +18,7 @@ from itertools import islice
 def limited_as_completed(coros: Union[Generator, Iterator], limit: float = 30) -> Generator:
     ''' limited_as_completed '''
     loop = asyncio.get_event_loop()
-    if loop.is_closed():
+    if loop.is_closed():  # pragma: no cover
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 
