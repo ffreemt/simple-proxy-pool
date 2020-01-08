@@ -1,4 +1,5 @@
-# simple-proxy-pool [![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)](https://travis-ci.com/ffreemt/simple-proxy-pool)[![codecov](https://codecov.io/gh/ffreemt/simple-proxy-pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ffreemt/simple-proxy-pool)[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)![GitHub](https://img.shields.io/github/license/ffreemt/simple-proxy-pool)[![PyPI version](https://badge.fury.io/py/simple-proxy-pool.svg)](https://badge.fury.io/py/simple-proxy-pool)
+# simple-proxy-pool
+[![image](https://travis-ci.com/ffreemt/simple-proxy-pool.svg?branch=master)](https://travis-ci.com/ffreemt/simple-proxy-pool)[![codecov](https://codecov.io/gh/ffreemt/simple-proxy-pool/branch/master/graph/badge.svg)](https://codecov.io/gh/ffreemt/simple-proxy-pool)[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)![GitHub](https://img.shields.io/github/license/ffreemt/simple-proxy-pool)[![PyPI version](https://badge.fury.io/py/simple-proxy-pool.svg)](https://badge.fury.io/py/simple-proxy-pool)
 
 简单IP代理池 simple_pp 是个 异步并发IP代理验证工具，速度很快，一千个代理半分钟左右可完成。
 
