@@ -84,7 +84,9 @@ def test_localhost_8889():
     res = simple_pp([['127.0.0.1:8889', 'user']])
     # [('127.0.0.1:8889', 'user', True, False, 0.83)]
     assert res[0][0] == '127.0.0.1:8889'
-    if sys.platform in 'win32':  # local in win10
+
+    # local in win10
+    if sys.platform in 'win32':  # pragma: no cover
         assert res[0][-3] is True
         assert res[0][-2] is False
 
@@ -98,6 +100,6 @@ def test_localhost_8889__need_wrap():
     assert res[0][0] == '127.0.0.1:8889'
 
     # local in win10
-    if sys.platform in ['win32']:
+    if sys.platform in ['win32']:  # pragma: no cover
         assert res[0][-3] is True
         assert res[0][-2] is False
