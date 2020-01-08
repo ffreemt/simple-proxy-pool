@@ -26,11 +26,11 @@ def make_url(
     'http://173.82.240.230:5000/json'
     '''
 
-    if not isinstance(url, (bytes, str)):
+    if not isinstance(url, (bytes, str)):  # pragma: no cover
         logger.warning(f'\n\t url provided: {url}, not str nor bytes, returning empty')
         return ''
 
-    if isinstance(url, bytes):
+    if isinstance(url, bytes):  # pragma: no cover
         try:
             url = url.decode()
         except Exception as exc:
@@ -50,9 +50,9 @@ def make_url(
             _ = re.search(r'\d{1,4}(\.\d{1,4}){3}(:\d{1,4})?', url)
             if _:
                 url = _.group()
-        except Exception as exc:
+        except Exception as exc:  # pragma: no cover
             logger.error(f' {str(exc)} ')
-            logger.info('Unable to retreve any valid ip, setting to 127.0.0.1')
+            logger.info('Unable to retrieve any valid ip, setting to 127.0.0.1')
             # url = '127.0.0.1'
             raise
 
@@ -62,13 +62,13 @@ def make_url(
     # if not parsed.scheme and parsed.path:
 
     if parsed.scheme not in ['http', 'https', 'ftp', 'socks4', 'socks5']:
-        if parsed.netloc:
+        if parsed.netloc:  # pragma: no cover
             netloc = parsed.netloc
         else:
             _ = re.search(r'\d{1,4}(\.\d{1,4}){3}(:\d{1,4})?', parsed.path)
             if _:  # attempt to retrieve an ip:port pair
                 path_info = _.group()
-            else:
+            else:  # pragma: no cover
                 path_info = parsed.path
 
             netloc = path_info
