@@ -5,7 +5,9 @@ simple proxy pool
 
 from typing import (Union, List, Tuple, Any, Generator)
 
+import sys
 import re
+from loguru import logger
 
 from .timeme import timeme  # tpye: ignore
 from .limited_as_completed import limited_as_completed
@@ -19,8 +21,13 @@ from .need_to_wrap import need_to_wrap
 def simple_pp(
         proxies: Union[str, List[Any], Tuple[Any, ...]],
         timeout: float = 4,
+        debug: bool = True,
 ) -> List[Any]:
     ''' simeple proxy pool '''
+
+    if not debug:
+        logger.remove()
+        logger.add(sys.stderr, level='INFO')
 
     # (\d{1,3}(?:\.\d{1,3}){3})(?:[:\s]+(\d{1,5})(?=[^\d\.]))?
     # (\d{1,3}(?:\.\d{1,3}){3})(?:[^\d\.]+(\d{1,5})(?=[^\d\.]))?

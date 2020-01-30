@@ -1,5 +1,8 @@
 r'''
 simple proxy pool + proxy validation
+
+entry_points and executable script
+https://chriswarrick.com/blog/2014/09/15/python-apps-the-right-way-entry_points-and-scripts/
 '''
 # pylint: disable=invalid-name
 from pathlib import Path
@@ -43,7 +46,8 @@ targz = 'v_' + version.replace('.', '') + '.tar.gz'
 
 # install_requires = [*read_requirements_file(curr_dir, 'requirements.txt')]  # noqa
 
-install_requires = ['requests',
+install_requires = [
+    'requests',
     'aiohttp',
     'httpx',
     'multidict',
@@ -57,17 +61,20 @@ install_requires = ['requests',
 ]
 
 README_rst = f'{curr_dir}/README.md'
-long_description = open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''
+long_description = (
+    open(README_rst, encoding='utf-8').read() if Path(README_rst).exists() else ''
+)
 
 setup(
     name=name,
     packages=find_packages(),
+    entry_points={'console_scripts': ['simpl_pp = simple_pp.__main__:main']},
     # packages=['simple_pp'],
     version=version,
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords=['machine translation', 'free', 'scraping', ],
+    keywords=['machine translation', 'free', 'scraping'],
     author="mikeee",
     url=f'http://github.com/ffreemt/{name}',
     download_url='https://github.com/ffreemt/simepl-proxy-pool/archive/' + targz,

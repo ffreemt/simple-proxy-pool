@@ -8,8 +8,9 @@ https://artificialworlds.net/presentations/python-async/python-async.html x
 https://www.artificialworlds.net/blog/2017/06/12/making-100-million-requests-with-python-aiohttp/
 '''
 # pyright: strict
-
 from typing import Union, Generator, Iterator, List, Tuple, Any
+
+from loguru import logger
 
 import asyncio
 from itertools import islice
@@ -17,7 +18,14 @@ from itertools import islice
 
 def limited_as_completed(coros: Union[Generator, Iterator], limit: float = 30) -> Generator:
     ''' limited_as_completed '''
-    loop = asyncio.get_event_loop()
+    try:
+        loop = asyncio.get_event_loop()
+    except Exception as exc:
+        logger.error('exc: %s, trying loop = asyncio.new_event_loop()' % exc)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
+    # this shouldnt happen any more, but we leave it
     if loop.is_closed():  # pragma: no cover
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
