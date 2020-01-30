@@ -22,6 +22,8 @@ python setup.py develop
 #### 命令行
 
 ##### 简单用法
+```simple-pp```
+或
 ```python -m simple_pp```
 
 simple_pp 会试着以各种方式搜集到不少于 200 个代理，验证后将有效代理输出到屏幕上。
@@ -66,7 +68,8 @@ python -m simple_pp -c 127.0.0.1 127.0.0.1:8889 127.0.0.1:8080
 #### 高级用法
 
 显示详细用法
-
+``` simple-pp -h ```
+或
 ```python -m simple_pp -h```
 
 给定代理数目
