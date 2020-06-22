@@ -34,7 +34,6 @@ SEM = asyncio.Semaphore(1000)
 async def fetch_headers(url, session=None, proxy=None):
     '''  fetch_headers from www.baidu.com via a proxy
 
-
     :return: reached baidu, ano '''
 
     # obtain a session when session is None or closed

@@ -16,12 +16,12 @@ import asyncio
 from itertools import islice
 
 
-def limited_as_completed(coros: Union[Generator, Iterator], limit: float = 30) -> Generator:
+def limited_as_completed(coros: Union[Generator, Iterator], limit: int = 30) -> Generator:
     ''' limited_as_completed '''
     try:
         loop = asyncio.get_event_loop()
     except Exception as exc:
-        logger.error('exc: %s, trying loop = asyncio.new_event_loop()' % exc)
+        # logger.error('exc: %s, trying loop = asyncio.new_event_loop()' % exc)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
 

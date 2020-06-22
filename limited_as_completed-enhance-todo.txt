@@ -1,0 +1,9 @@
+
+refer to mypython\google_tr_pp.py
+
+  # output out of order, use futures to retrieve pos info
+  futures = (google_tr_async(elm, from_lang=from_lang, to_lang=to_lang) for elm in text)
+
+  may need limited_as_completed.futures to record order
+    amend limited_as_completed as needed
+      refer to mypython\limited_as_completed.py

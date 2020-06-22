@@ -68,7 +68,7 @@ long_description = (
 setup(
     name=name,
     packages=find_packages(),
-    entry_points={'console_scripts': ['simple-pp = simple_pp.__main__:main']},
+    entry_points={'console_scripts': ['simple-pp=simple_pp.__main__:main']},
     # packages=['simple_pp'],
     version=version,
     description=description,
